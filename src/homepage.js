@@ -1,9 +1,8 @@
 import { toDo } from './toDo';
 
 export default (project) => {
-  let container = document.createElement('div');
-  container.classList.add('container');
-  document.body.appendChild(container);
+  const form = document.querySelector('#add-todo-form');
+  let container = document.querySelector('.container');
   let toDos = document.createElement('div');
   toDos.classList.add('toDos');
   printTodo(project.list[0], toDos);
@@ -24,15 +23,24 @@ export default (project) => {
   addBtn.textContent = 'add todo';
   container.appendChild(addBtn);
   addBtn.addEventListener('click', () => {
+      form.style.display = "block"
+    });
+  
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
     let newTodo = toDo(
-      'go to bank',
-      'get money',
-      'bank',
-      'tomorrow',
-      'high',
-      false
+      formData.get(`name`),
+      formData.get('description'),
+      formData.get('location'),
+      formData.get('due-date'),
+      formData.get('priority')
     );
-    project.list.push(newTodo);
-    printTodo(project.list[1], toDos);
+    
+    printTodo(newTodo, toDos);
+    form.style.display = 'none';
+    form.reset();
   });
+  
 };

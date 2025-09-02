@@ -6,6 +6,53 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <form  id="add-todo-form">
+            <h1>add todo item</h1>
+            <div>
+
+                <label for="name">Name</label>
+                <input id="name" type="text"  name="name" required> 
+                
+            </div>
+            <div>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" id="add-todo-form"></textarea>
+                
+            </div>
+            <div>
+
+                <label for="location">Location</label>
+               <input id="location" type="text"  name="location"> 
+            </div>
+
+            <div>
+
+                <label for="due-date">Due Date</label>
+               <input id="due-date" type="date"  name="due-date">
+            </div>
+
+             <fieldset>
+                <legend>Priority</legend>
+                <div>
+                    <input type="radio" id="high" name="priority" value="high" checked>
+                    <label for="high">High</label>
+                </div>
+                <div>
+                    <input type="radio" id="medium" name="priority" value="medium" >
+                    <label for="medium">Medium</label>
+                </div>
+                <div>
+                    <input type="radio" id="low" name="priority" value="low" >
+                    <label for="low">Low</label>
+                </div>
+             </fieldset>
+            
+            <input type="submit">
+            
+        </form>
+    </div>
     
 </body>
 </html>
